@@ -30,6 +30,11 @@ separator_block_width=15
 markup=none
 color=#A4C2F4
 
+[rss]
+label=RSS
+interval=300
+command=rsstail -n1 -1 -N -u https://rss.app/feeds/W7oVlMOnaenZxb92.xml
+
 # Guess the weather hourly
 [weather]
 command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
@@ -46,6 +51,7 @@ instance=brave
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory/memory]
+command=~/.config/i3/scripts/memory
 label=MEM
 interval=30
 
@@ -76,13 +82,13 @@ signal=10
 # Date Time
 #
 [time]
-command=date '+%Y-%m-%d %H:%M'
+command=date '+%a %d %H:%M'
 interval=5
 
 [word]
 #full_text=Done is better than perfect.
 markup=pango
-full_text=<span size="large">Done</span> is better than perfect.
+full_text=Done is better than perfect.
 
 
 # Generic media player support
