@@ -31,9 +31,9 @@ markup=none
 color=#A4C2F4
 
 [rss]
-label=RSS
 interval=300
-command=rsstail -n1 -1 -N -u https://rss.app/feeds/W7oVlMOnaenZxb92.xml
+#command=rsstail -n1 -1 -N -u https://rss.app/feeds/W7oVlMOnaenZxb92.xml
+command=rsstail -n1 -1 -N -u https://rsshub.app/apnews/topics/apf-topnews
 
 # Guess the weather hourly
 [weather]
@@ -63,7 +63,7 @@ interval=30
 
 [temperature/temperature]
 label=TEMP
-interval=10
+interval=30
 
 
 [battery-poly/battery-poly]
@@ -75,7 +75,7 @@ label=BAT
 [volume-pulseaudio]
 command=~/.config/i3blocks/volume-pulseaudio/volume-pulseaudio
 label=VOL
-interval=once
+interval=30
 signal=10
 #STEP=5%
 
@@ -86,9 +86,10 @@ command=date '+%a %d %H:%M'
 interval=5
 
 [word]
-#full_text=Done is better than perfect.
 markup=pango
 full_text=Done is better than perfect.
+short_text=Done > Perfect
+
 
 
 # Generic media player support

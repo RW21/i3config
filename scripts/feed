@@ -13,7 +13,6 @@ fi
 
 # Follows redirects!
 FEED_CONTENT=$(curl ${FEED_URL} -s -L)
-echo $FEED_CONTENT
 FEED_TITLE=$(echo "${FEED_CONTENT}" | grep -v "xmlns:atom" | grep -o '<title>.*</title>' | head -n 1 | sed 's/\(<title>\|<\/title>\)//g')
 FEED_LINK=$(echo "${FEED_CONTENT}"  | grep -v "xmlns:atom" | grep -o '<link>.*</link>' | head -n 1 | sed 's/\(<link>\|<\/link>\)//g')
 

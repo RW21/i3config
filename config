@@ -37,6 +37,13 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# i3workspace-groups
+#set $exec_i3_groups exec --no-startup-id i3-workspace-groups
+
+#bindsym $mod+n exec --no-startup-id i3-switch-active-workspace-group
+#bindsym $mod+Shift+n exec --no-startup-id i3-focus-on-workspace
+
+
 
 # Japanese
 exec --no-startup-id fcitx
@@ -48,8 +55,11 @@ hide_edge_borders none
 floating_modifier $mod
 
 # swap caps lock and escape
+#disable caps completely
+exec-always --no-startup-id setxkbmap -layout us
+exec-always --no-startup-id setxkbmap -option caps:none
 exec_always --no-startup-id xmodmap -e "clear lock"
-exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
+#exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
 exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 
 # start a terminal
@@ -114,7 +124,7 @@ mode "$monitor_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+m mode "$monitor_system"
+bindsym XF86Display mode "$monitor_system"
 
 # brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id "/home/rw21/.config/i3/scripts/brightness.sh plus 10"
@@ -125,6 +135,10 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+# next workspace
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
 
 # split in horizontal orientation
@@ -148,7 +162,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
+
+# move up theparent container
+bindsym $mod+a move up
 
 # focus the child container
 #bindsym $mod+d focus child
