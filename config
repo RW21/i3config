@@ -43,6 +43,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 #bindsym $mod+n exec --no-startup-id i3-switch-active-workspace-group
 #bindsym $mod+Shift+n exec --no-startup-id i3-focus-on-workspace
 
+# Change permissions
+exec --no-startup-id ~/.config/i3/scripts/permissions.sh
 
 
 # Japanese
